@@ -29,7 +29,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; overflow-x: clip; }
 body {
   margin: 0;
   background: var(--ink);
@@ -38,6 +38,7 @@ body {
   font-size: var(--step-0);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
@@ -172,6 +173,7 @@ p { margin: 0; }
 @keyframes float { 50% { transform: translateY(-10px); } }
 
 /* ---------- Бегущая строка ---------- */
+.ticker-wrap { overflow: hidden; padding-block: 14px; position: relative; z-index: 2; }
 .ticker { background: var(--butter); color: var(--brown); overflow: hidden; padding-block: 18px; transform: rotate(-1.5deg); margin: 10px -20px; position: relative; z-index: 2; }
 .ticker-track { display: flex; width: max-content; animation: ticker 34s linear infinite; }
 .ticker-track span { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.1rem, .9rem + 1vw, 1.7rem); white-space: nowrap; padding-inline: 22px; display: inline-flex; align-items: center; gap: 44px; }
